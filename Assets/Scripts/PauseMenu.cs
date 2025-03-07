@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     // Referanse til PauseMenu gameobjektet vårt. Dette er panelet vi vil skru av og på
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsMenu;
 
     // En måte å se om spillet er pauset eller ikke
     private bool isPaused = false;
@@ -40,6 +41,20 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+    }
+
+    public void OpenSettingsMenu()
+    {
+        // Deaktiver pause menu
+        pauseMenu.SetActive(false);
+        // Aktivere settings menu
+        settingsMenu.SetActive(true);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
     }
 
     // Public metode for å avslutte spillet - Quit.
